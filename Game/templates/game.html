@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake Game</title>
+    <meta http-equiv="refresh" content="1">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80vw;  /* 80% of the viewport width */
+            height: 80vw; /* Keep the height equal to the width to maintain aspect ratio */
+            max-width: 100vh; /* Do not exceed the viewport height */
+            max-height: 100vh; /* Do not exceed the viewport height */
+        }
+        td {
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .snake {
+            background-color: orange;
+        }
+        .food {
+            background-color: purple;
+            border-radius: 50%;
+        }
+        .wall{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        {% for row in range(board[1]) %}
+        <tr>
+            {% for col in range(board[0]) %}
+            <td class="{{ 'snake' if (col, row) in snake else 'food' if (col, row) == food else 'wall' if (col, row) in walls else '' }}"></td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="/game" method="post">
+
+        <button name="direction" value="up">UP</button>
+        <button name="direction" value="down">DOWN</button>
+        <button name="direction" value="left">LEFT</button>
+        <button name="direction" value="right">RIGHT</button>
+    </form>
+</body>
+</html>
