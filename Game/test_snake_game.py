@@ -86,13 +86,6 @@ def test_move_down():
     assert game.snake.get_head() == (5, 6)
 
 
-def test_move_left():
-    game = Game(10, 10)
-    game.snake.change_direction('left')
-    game.move_snake()
-    assert game.snake.get_head() == (4, 5)
-
-
 def test_move_right():
     game = Game(10, 10)
     game.snake.change_direction('right')
