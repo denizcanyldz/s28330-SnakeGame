@@ -34,6 +34,30 @@
         .wall{
             background-color: black;
         }
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .control-panel button {
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .control-row {
+            display: flex;
+            justify-content: center;
+        }
+        .control-row .button-up {
+            align-self: flex-start;
+        }
+        .control-row .button-left,
+        .control-row .button-down,
+        .control-row .button-right {
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -47,11 +71,16 @@
         {% endfor %}
     </table>
     <form action="/game" method="post">
-
-        <button name="direction" value="up">UP</button>
-        <button name="direction" value="down">DOWN</button>
-        <button name="direction" value="left">LEFT</button>
-        <button name="direction" value="right">RIGHT</button>
+         <div class="control-panel">
+        <div class="control-row button-up">
+            <button name="direction" value="up">UP</button>
+        </div>
+        <div class="control-row">
+            <button name="direction" value="left">LEFT</button>
+            <button name="direction" value="down">DOWN</button>
+            <button name="direction" value="right">RIGHT</button>
+        </div>
+         </div>
     </form>
 </body>
 </html>
