@@ -183,7 +183,7 @@ def test_collision_with_self():
 
     # Force a scenario where the snake collides with its own tail
     game.snake.body = [(2, 2), (3, 2), (4, 2), (4, 3), (3, 3), (2, 3)]  # Head overlaps the tail
-    game.snake.direction = 'left'  # Move the head back towards the body
+    game.snake.direction = 'right'  # Move the head back towards the body
 
     game.move_snake()
     assert game.game_over
