@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from Game.snake_game import game
 
 app = Flask(__name__)
-allowed_characters = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_")
+allowed_characters = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_") #
 
 
 @app.route('/', methods=['GET', 'POST'])
