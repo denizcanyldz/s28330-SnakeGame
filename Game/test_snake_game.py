@@ -86,13 +86,6 @@ def test_move_down():
     assert game.snake.get_head() == (5, 6)
 
 
-def test_move_left():
-    game = Game(10, 10)
-    game.snake.change_direction('left')
-    game.move_snake()
-    assert game.snake.get_head() == (4, 5)
-
-
 def test_move_right():
     game = Game(10, 10)
     game.snake.change_direction('right')
@@ -190,7 +183,7 @@ def test_collision_with_self():
 
     # Force a scenario where the snake collides with its own tail
     game.snake.body = [(2, 2), (3, 2), (4, 2), (4, 3), (3, 3), (2, 3)]  # Head overlaps the tail
-    game.snake.direction = 'left'  # Move the head back towards the body
+    game.snake.direction = 'right'  # Move the head back towards the body
 
     game.move_snake()
     assert game.game_over

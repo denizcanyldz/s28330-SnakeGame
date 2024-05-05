@@ -71,11 +71,16 @@
         {% endfor %}
     </table>
     <form action="/game" method="post">
-
-        <button name="direction" value="up">UP</button>
-        <button name="direction" value="down">DOWN</button>
-        <button name="direction" value="left">LEFT</button>
-        <button name="direction" value="right">RIGHT</button>
+         <div class="control-panel">
+        <div class="control-row button-up">
+            <button name="direction" value="up">UP</button>
+        </div>
+        <div class="control-row">
+            <button name="direction" value="left">LEFT</button>
+            <button name="direction" value="down">DOWN</button>
+            <button name="direction" value="right">RIGHT</button>
+        </div>
+         </div>
     </form>
 </body>
 </html>
