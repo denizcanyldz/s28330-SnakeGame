@@ -34,6 +34,30 @@
         .wall{
             background-color: black;
         }
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .control-panel button {
+            width: 100px;
+            height: 50px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .control-row {
+            display: flex;
+            justify-content: center;
+        }
+        .control-row .button-up {
+            align-self: flex-start;
+        }
+        .control-row .button-left,
+        .control-row .button-down,
+        .control-row .button-right {
+            align-self: flex-end;
+        }
     </style>
 </head>
 <body>
