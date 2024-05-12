@@ -28,3 +28,37 @@
 **Stretch Goals**
 * **Multiplayer Mode:**  Enable collaborative play where multiple players contribute to controlling the snake's movements, fostering teamwork and coordination.
 * **Dynamic Obstacles:** Introduce obstacles within the playing field that increase in complexity or frequency over time, requiring strategic navigation and adaptation.
+
+## Installation and Setup
+
+### Prerequisites
+- Python 3.10 or later
+- Docker (optional for containerization)
+
+### Local Setup
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/project-snake.git
+   cd project-snake
+   
+2. **Install dependencies:**
+   pip install -r requirements.txt
+
+3. **Run the application:**
+   python app.py
+This will start the Flask server on http://localhost:5000.
+
+### Using Docker
+1. **Build the Docker image**
+   docker build -t snake-game .
+
+2. **Run the Docker container:**
+   docker run -p 5000:5000 snake-game
+Access the game at http://localhost:5000.
+
+### How to Play
+* Navigate to http://localhost:5000 in your web browser.
+* Use the mouse for clicking the direction buttons to control the direction of the snake.
+* Try to eat as much food as possible without colliding with the walls or the snake's body.
+
+
