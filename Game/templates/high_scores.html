@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>High Scores</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('{{ url_for('static', filename='images/image.jpg') }}');
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #ffffff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+            min-width: 200px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>High Scores</h1>
+    <ul>
+        {% for score in scores %}
+            <li>{{ score.user_name }}: {{ score.score }}</li>
+        {% endfor %}
+    </ul>
+    <button onclick="window.location.href='/';">Back to Start</button>
+</body>
+</html>

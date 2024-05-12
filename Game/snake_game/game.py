@@ -3,7 +3,7 @@ import random
 
 class Snake:
     def __init__(self, board_width, board_height):
-        self.speed = 1  # Squares per second
+        self.speed = 2  # Squares per second
         self.direction = 'right'  # Initial direction
         self.body = [
             (board_width // 2, board_height // 2),  # Head
@@ -15,9 +15,23 @@ class Snake:
         return self.body[0]  # Head is always the first segment
 
     def move(self):
-        new_head = self.calculate_new_head()
-        self.body.insert(0, new_head)  # Insert new head
-        self.body.pop()  # Remove the tail
+        # Calculate new head position based on the current direction
+        head_x, head_y = self.body[0]
+        if self.direction == 'right':
+            head_x += 1
+        elif self.direction == 'left':
+            head_x -= 1
+        elif self.direction == 'up':
+            head_y -= 1
+        elif self.direction == 'down':
+            head_y += 1
+
+        # Insert the new head at the beginning of the list
+        new_head = (head_x, head_y)
+        self.body.insert(0, new_head)
+
+        # Remove the last element to simulate movement unless growing
+        self.body.pop()
 
     def calculate_new_head(self):
         head_x, head_y = self.get_head()
@@ -43,18 +57,10 @@ class Snake:
         return self.body
 
     def change_direction(self, new_direction):
-        # Prevent 180-degree turns (snake can't go directly backward)
-        if (new_direction == 'left' and self.direction != 'right') or \
-                (new_direction == 'right' and self.direction != 'left') or \
-                (new_direction == 'up' and self.direction != 'down') or \
-                (new_direction == 'down' and self.direction != 'up'):
+        # Prevent 180-degree turns
+        opposite_directions = {'up': 'down', 'down': 'up', 'left': 'right', 'right': 'left'}
+        if new_direction != opposite_directions.get(self.direction):
             self.direction = new_direction
-
-        if (new_direction == 'left' and self.direction == 'right') or \
-                (new_direction == 'right' and self.direction == 'left') or \
-                (new_direction == 'up' and self.direction == 'down') or \
-                (new_direction == 'down' and self.direction == 'up'):
-            pass
 
 
 # Game state management

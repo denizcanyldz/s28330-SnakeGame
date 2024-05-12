@@ -1,10 +1,18 @@
-version: '3.8'
+version: '3.10'
+
 services:
-  web:
-    image: nginx:latest
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
     ports:
-     - "80:80"
-  db:
-   image: mysql:latest
-   environment:
-         MYSQL_ROOT_PASSWORD: snake
+      - "27017:27017"
+
+  snake:
+    build: .
+    container_name: snake
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: "mongodb+srv://deniz:denizpjatk@cluster0.5y1k84l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"

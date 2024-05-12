@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Snake Game</title>
-    <meta http-equiv="refresh" content="1">
+    <meta http-equiv="refresh" content="0.4">
     <style>
         html, body {
             height: 100%;
@@ -12,6 +12,9 @@
             justify-content: center;
             align-items: center;
             background-color: #f0f0f0;
+            background-image: url('{{ url_for('static', filename='images/image.jpg') }}');
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
         }
         table {
             border-collapse: collapse;
@@ -23,28 +26,41 @@
         td {
             border: 1px solid #ddd;
             background-color: #fff;
+            transition: background-color 0.3s ease; /* Smooth transition for color change */
         }
         .snake {
-            background-color: orange;
+            background-color: #4CAF50; /* A richer shade of green */
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5); /* Subtle inner shadow for depth */
         }
         .food {
-            background-color: purple;
+            background-color: #FFD700; /* Gold color for visibility */
             border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for a glowing effect */
         }
-        .wall{
-            background-color: black;
+        .wall {
+            background-color: #555; /* Dark gray for better contrast */
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8); /* Depth perception */
         }
         .control-panel {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 20px;
         }
         .control-panel button {
+            background-color: #333; /* Dark buttons for a modern look */
+            color: white;
+            border: none;
             width: 100px;
             height: 50px;
             font-size: 16px;
             margin: 5px;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .control-panel button:hover {
+            background-color: #555; /* Hover effect */
         }
         .control-row {
             display: flex;

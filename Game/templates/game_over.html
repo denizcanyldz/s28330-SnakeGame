@@ -3,6 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Over - Snake Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            background-image: url('{{ url_for('static', filename='images/image.jpg') }}');
+            background-size: cover; /* Cover the entire page */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            text-align: center;
+            padding-top: 50px; /* Adds space at the top of the page */
+            color: #333; /* Dark gray text color for better readability */
+        }
+        h1 {
+            color: #D8000C; /* Red color to emphasize Game Over */
+        }
+        p {
+            font-size: 18px; /* Larger text for emphasis */
+            margin: 20px auto; /* Centers the paragraph with some space */
+        }
+        a {
+            display: inline-block;
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            text-decoration: none; /* Removes underline from the link */
+            font-size: 16px;
+        }
+        a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Game Over!</h1>
