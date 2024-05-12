@@ -42,17 +42,21 @@
    cd project-snake
    
 2. **Install dependencies:**
+   ```bash
    pip install -r requirements.txt
 
-3. **Run the application:**
+4. **Run the application:**
+   ```bash
    python app.py
 This will start the Flask server on http://localhost:5000.
 
 ### Using Docker
 1. **Build the Docker image**
+   ```bash
    docker build -t snake-game .
 
-2. **Run the Docker container:**
+3. **Run the Docker container:**
+   ```bash
    docker run -p 5000:5000 snake-game
 Access the game at http://localhost:5000.
 
