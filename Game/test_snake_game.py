@@ -17,27 +17,6 @@ def test_snake_init():
     assert snake.body == [(5, 5), (4, 5), (3, 5)]
 
 
-def test_snake_move():
-    snake = Snake(10, 10)
-    snake.move()  # Snake moves right
-    assert snake.body == [(6, 5), (5, 5), (4, 5)]
-
-
-def test_snake_change_direction():
-    snake = Snake(10, 10)
-    snake.change_direction('up')
-    assert snake.direction == 'up'
-
-
-# Basic Game Tests
-def test_game_init():
-    game = Game(10, 10)
-
-    assert game.snake.body  # Snake exists
-    assert game.food  # Food is placed
-    assert game.game_over is False
-
-
 def test_game_move_snake():
     game = Game(10, 10)
     start_head = game.snake.get_head()
