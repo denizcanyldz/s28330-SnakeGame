@@ -14,12 +14,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install dependencies
+        run: |
+           python -m pip install --upgrade pip
+           pip install -r requirements.txt
+        working-directory: s28330-SnakeGame
+
       - name: Run tests
         run: |
-          python -m pip install -r requirements.txt
           pytest test_snake_game.py
-        working-directory: s28330-SnakeGame/Game
+        working-directory: s28330-SnakeGame
+
 
       - name: Build Docker image
-        run: docker build -t s28330-SnakeGame:latest .
-        working-directory: s28330-SnakeGame/Game
+        run: docker build -t s28330-snakegame:latest .
+        working-directory: s28330-SnakeGame
