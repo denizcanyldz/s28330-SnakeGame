@@ -3,9 +3,6 @@ from pymongo import MongoClient
 import certifi
 from snake_game import game
 
-
-
-
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'b\xd7\xde\xb0\x17}\x7f\x98\x08Em\xe1\xd9Ev'
 
