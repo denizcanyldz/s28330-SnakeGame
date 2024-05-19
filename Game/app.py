@@ -1,16 +1,15 @@
-
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 import certifi
-
 from snake_game import game
+
+
+
 
 app = Flask(__name__, static_folder='static')
 app.secret_key = 'b\xd7\xde\xb0\x17}\x7f\x98\x08Em\xe1\xd9Ev'
 
 allowed_characters = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_")  #
-
-
 
 MONGODB_URL = "mongodb+srv://deniz:denizpjatk@cluster0.5y1k84l.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
