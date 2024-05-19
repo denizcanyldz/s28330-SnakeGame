@@ -17,13 +17,13 @@ jobs:
         run: |
            python -m pip install --upgrade pip
            pip install -r requirements.txt
-        working-directory: Game
+        working-directory: /Users/denizcanyildiz/Desktop/s28330-SnakeGame/Game
 
       - name: Run tests
         run: |
           pytest test_snake_game.py
-        working-directory: Game
+        working-directory: /Users/denizcanyildiz/Desktop/s28330-SnakeGame/Game
 
       - name: Build Docker image
-        run: docker build -t snake:latest
-        working-directory: Game
+        run: docker build -t snake:latest .
+        working-directory: /Users/denizcanyildiz/Desktop/s28330-SnakeGame/Game
