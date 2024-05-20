@@ -21,9 +21,9 @@ jobs:
 
       - name: Run tests
         run: |
-           pytest /Users/denizcanyildiz/Desktop/s28330-SnakeGame/Game/test_snake_game.py
+           pytest test_snake_game.py
         working-directory: Game
 
       - name: Build Docker image
-        run: docker build -t snakegame:latest .
+        run: docker build -t game-snake:latest .
         working-directory: Game
