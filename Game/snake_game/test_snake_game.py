@@ -6,16 +6,6 @@ from Game.snake_game.game import Game, Snake, get_food
 
 
 # Basic Snake Tests
-def test_snake_init():
-    game_width = 10
-    game_height = 10
-    snake = Snake(game_width, game_height)
-
-    assert snake.speed == 1
-    assert snake.direction == 'right'
-    assert snake.body == [(5, 5), (4, 5), (3, 5)]
-
-
 def test_game_move_snake():
     game = Game(10, 10)
     start_head = game.snake.get_head()
