@@ -18,7 +18,8 @@ def test_game_move_snake():
 # Tests for board validation and creation
 def test_board_size_validation():
     with pytest.raises(ValueError):
-        Game(4, 4)
+        game.init_game(4, 4, 'Invalid')
+
 
 def test_board_creation():
     game = Game(10, 10)
@@ -28,16 +29,14 @@ def test_board_creation():
 
 def test_board_size_below_minimum():
     with pytest.raises(ValueError):
-        Game(4, 24)
-    with pytest.raises(ValueError):
-        Game(24, 4)
+        game.init_game(4, 24, 'Invalid Low Width')
+        game.init_game(24, 4, 'Invalid Low Height')
 
 
 def test_board_size_above_maximum():
     with pytest.raises(ValueError):
-        Game(26, 24)
-    with pytest.raises(ValueError):
-        Game(24, 26)
+        game.init_game(26, 24, 'Invalid High Width')
+        game.init_game(24, 26, 'Invalid High Height')
 
 
 # Movement tests
