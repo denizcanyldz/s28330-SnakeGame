@@ -26,7 +26,7 @@ jobs:
       - name: Run tests
         run: |
            pytest test.py
-        working-directory: Game
+        working-directory: Game/snake_game
 
       - name: Build Docker image
         run: docker build -t s28330-snakegame:latest .
