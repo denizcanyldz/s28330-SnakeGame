@@ -21,7 +21,7 @@ jobs:
 
       - name: Run tests
         run: |
-           pytest test/test_snake_game.py
+           pytest snake_game/test_snake_game.py
         working-directory: Game
 
       - name: Build Docker image

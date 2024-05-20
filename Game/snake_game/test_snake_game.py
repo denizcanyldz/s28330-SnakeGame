@@ -1,8 +1,8 @@
 import pytest
 from flask import Flask, render_template, request
 
+from Game.snake_game import game
 from Game.snake_game.game import Game, Snake, get_food, calculate_area
-from snake_game import game
 
 
 # Basic Snake Tests
