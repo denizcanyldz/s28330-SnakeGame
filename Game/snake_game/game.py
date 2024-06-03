@@ -3,6 +3,8 @@ import random
 
 class Snake:
     def __init__(self, board_width, board_height):
+        self.board_width = board_width
+        self.board_height = board_height
         self.speed = 2  # Squares per second
         self.direction = 'right'  # Initial direction
         self.body = [
@@ -15,7 +17,6 @@ class Snake:
         return self.body[0]  # Head is always the first segment
 
     def move(self):
-        # Calculate new head position based on the current direction
         head_x, head_y = self.body[0]
         if self.direction == 'right':
             head_x += 1
@@ -26,41 +27,44 @@ class Snake:
         elif self.direction == 'down':
             head_y += 1
 
-        # Insert the new head at the beginning of the list
+        # Teleportation logic
+        head_x = head_x % self.board_width
+        head_y = head_y % self.board_height
+
         new_head = (head_x, head_y)
         self.body.insert(0, new_head)
-
-        # Remove the last element to simulate movement unless growing
         self.body.pop()
 
     def calculate_new_head(self):
         head_x, head_y = self.get_head()
-        new_head_x = head_x  # Initialize with current head position
-        new_head_y = head_y  # Initialize with current head position
+        new_head_x, new_head_y = head_x, head_y
 
         if self.direction == 'right':
-            new_head_x = head_x + 1
+            new_head_x += 1
         elif self.direction == 'left':
-            new_head_x = head_x - 1
+            new_head_x -= 1
         elif self.direction == 'up':
-            new_head_y = head_y - 1
+            new_head_y -= 1
         elif self.direction == 'down':
-            new_head_y = head_y + 1
+            new_head_y += 1
+
+        # Teleportation logic
+        new_head_x = new_head_x % self.board_width
+        new_head_y = new_head_y % self.board_height
 
         return new_head_x, new_head_y
 
     def grow(self):
-        # Add a new segment at the previous tail position
         self.body.append(self.body[-1])
 
     def get_body(self):
         return self.body
 
     def change_direction(self, new_direction):
-        # Prevent 180-degree turns
         opposite_directions = {'up': 'down', 'down': 'up', 'left': 'right', 'right': 'left'}
         if new_direction != opposite_directions.get(self.direction):
             self.direction = new_direction
+
 
 
 # Game state management
@@ -98,18 +102,11 @@ class Game:
                 self.food = self.place_food()
 
     def check_collision(self, position):
-        x, y = position
-        return (
-                x < 0 or x >= self.board_width or
-                y < 0 or y >= self.board_height or
-                position in self.snake.body or
-                position in self.walls
-        )
-
-
+        return position in self.snake.body or position in self.walls
 
     def get_score(self):
         return len(self.snake.body) - 3  # Assuming initial snake length is 3
+
 
 # Example to initiate and manage game
 game_instance = None
