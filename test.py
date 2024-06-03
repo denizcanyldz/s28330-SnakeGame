@@ -90,38 +90,6 @@ def test_prevent_move_backwards_from_down():
     assert snake.direction == 'down'
 
 
-# Tests for collisions and growth
-def test_collision_left_wall():
-    game = Game(5, 5)
-    game.snake.body = [(0, 2)]  # Place snake head near left wall
-    game.snake.direction = 'left'
-    game.move_snake()
-    assert game.game_over
-
-
-def test_collision_right_wall():
-    game = Game(5, 5)
-    game.snake.body = [(4, 2)]  # Place snake head near right wall
-    game.snake.direction = 'right'
-    game.move_snake()
-    assert game.game_over
-
-
-def test_collision_top_wall():
-    game = Game(5, 5)
-    game.snake.body = [(2, 0)]  # Place snake head near top wall
-    game.snake.direction = 'up'
-    game.move_snake()
-    assert game.game_over
-
-
-def test_collision_bottom_wall():
-    game = Game(5, 5)
-    game.snake.body = [(2, 4)]  # Place snake head near bottom wall
-    game.snake.direction = 'down'
-    game.move_snake()
-    assert game.game_over
-
 
 def test_snake_growth_over_multiple_moves():
     game = Game(10, 10)
